@@ -8,61 +8,33 @@ const index = (req, res) => {
 }
 
 const store = (req, res) => {
-    let newEvent;
     let {title, description, date, maxSeats} = req.body
-
     
-    if(!title || !description || !date || !maxSeats){
-        return res.status(400).send("One or more informations are missing");
-    }
+    const event = new Event(title, description, date, maxSeats);
 
-    maxSeats = Number(maxSeats);
-    let lastEventID;
-    events.length !== 0? lastEventID = events[events.length-1].id+ 1 : lastEventID = 1;
-
-    newEvent = {
-        id: lastEventID,
-        title,
-        description,
-        date,
-        maxSeats
-    }
-
-    Event.addEvent(newEvent);
-
+    Event.addEvent(event);
     res.json({
-        newEvent: newEvent
+        newEvent: event
     })
 
 }
 
 const update = (req, res) => {
+
     let {event} = req.params;
     event = Number(event);
-    const eventFound = events.find(e => e.id === event);
 
+    const eventFound = events.find(e => e.id === event);
     if(!eventFound){
         return res.status(400).json({
             status: 400,
             error: `No element with id:${event} found.`
         })
     }
-    let {title, description, date, maxSeats} = req.body;
-    maxSeats = Number(maxSeats);
-    const updatedEvent = {
-        id: event,
-        title: title || eventFound.title,
-        description: description || eventFound.description,
-        date: date || eventFound.date,
-        maxSeats: maxSeats || eventFound.maxSeats,
-    }
-
-    const filteredEvents = events.filter(e => e.id !== event);
-
-    Event.updateEvent([...filteredEvents, updatedEvent]);
+    const update = Event.updateEvent(eventFound, req.body);
 
     res.json({
-        updatedEvent: updatedEvent
+        updatedEvent: update
     })
 
 
