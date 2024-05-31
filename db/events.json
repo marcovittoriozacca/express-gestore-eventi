@@ -1,37 +1,37 @@
 [
-    {
-        "id": 1,
-        "title": "Evento 1",
-        "description": "Descrizione dell'evento 1",
-        "date": "2024-12-28",
-        "maxSeats": 32
-    },
-    {
-        "id": 2,
-        "title": "Evento 2",
-        "description": "Descrizione dell'evento 2",
-        "date": "2024-06-22",
-        "maxSeats": 79
-    },
-    {
-        "id": 3,
-        "title": "Evento 3",
-        "description": "Descrizione dell'evento 3",
-        "date": "2024-09-05",
-        "maxSeats": 59
-    },
-    {
-        "id": 4,
-        "title": "Evento 4",
-        "description": "Descrizione dell'evento 4",
-        "date": "2024-08-12",
-        "maxSeats": 71
-    },
-    {
-        "id": 5,
-        "title": "Evento 5",
-        "description": "Descrizione dell'evento 5",
-        "date": "2024-10-03",
-        "maxSeats": 19
-    }
+  {
+    "id": 1,
+    "title": "ciao",
+    "description": "hello",
+    "date": "2024/10/20",
+    "maxSeats": 14
+  },
+  {
+    "id": 2,
+    "title": "Evento 2",
+    "description": "Descrizione dell'evento 2",
+    "date": "2024-06-22",
+    "maxSeats": 79
+  },
+  {
+    "id": 3,
+    "title": "Evento 3",
+    "description": "Descrizione dell'evento 3",
+    "date": "2024-09-05",
+    "maxSeats": 59
+  },
+  {
+    "id": 4,
+    "title": "Evento 4",
+    "description": "Descrizione dell'evento 4",
+    "date": "2024-08-12",
+    "maxSeats": 71
+  },
+  {
+    "id": 5,
+    "title": "Evento 5",
+    "description": "Descrizione dell'evento 5",
+    "date": "2024-10-03",
+    "maxSeats": 19
+  }
 ]

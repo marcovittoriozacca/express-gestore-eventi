@@ -33,7 +33,31 @@ const store = (req, res) => {
 }
 
 const update = (req, res) => {
-    res.json({message: "Update Route"});
+    let {event} = req.params;
+    event = Number(event);
+    const eventFound = events.find(e => e.id === event);
+
+    if(!eventFound){
+        return res.status(400).json({
+            status: 400,
+            error: `No element with id:${event} found.`
+        })
+    }
+    let {title, description, date, maxSeats} = req.body;
+    maxSeats = Number(maxSeats);
+    const updatedEvent = {
+        id: event,
+        title: title || eventFound.title,
+        description: description || eventFound.description,
+        date: date || eventFound.date,
+        maxSeats: maxSeats || eventFound.maxSeats,
+    }
+
+    const filteredEvents = events.filter(e => e.id !== event);
+
+    Event.updateEvent([...filteredEvents, updatedEvent]);
+
+
 }
 
 module.exports = {

@@ -16,17 +16,20 @@ class Event {
 
     }
 
-    static singleEvent(eventId){
-        const eventFound = events.find(e => e.id == eventId);
-        return eventFound;
-    }
-
     static addEvent(newEvent){
         const filePath = path.join(process.cwd(), 'db', 'events.json');
         const updateEvents = [...events, newEvent];
         const string = JSON.stringify(updateEvents, null, 2);
         fs.writeFileSync(filePath, string);
     }
+
+    static updateEvent(updatedEvents){
+        const filePath = path.join(process.cwd(), 'db', 'events.json');
+        const sortedArray = updatedEvents.sort((a,b) => a.id - b.id);
+        const string = JSON.stringify(sortedArray, null, 2);
+        fs.writeFileSync(filePath, string);
+    }
+
 }
 
 module.exports = Event;
