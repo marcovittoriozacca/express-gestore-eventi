@@ -3,6 +3,7 @@ const fs = require('fs');
 const events = require('../db/events.json');
 const reservations = require('../db/reservations.json');
 const Reservation = require('./reservation.js');
+const filePath = path.join(process.cwd(), 'db', 'events.json');
 class Event {
     constructor(title, description, date, maxSeats, id = null){
         if(!title || !description || !date || !maxSeats){
@@ -31,7 +32,6 @@ class Event {
     };
 
     static addEvent(newEvent){
-        const filePath = path.join(process.cwd(), 'db', 'events.json');
         const updateEvents = [...events, newEvent];
         const string = JSON.stringify(updateEvents, null, 2);
         fs.writeFileSync(filePath, string);
@@ -52,7 +52,6 @@ class Event {
 
         const filteredEvents = events.filter(e => e.id !== id);
 
-        const filePath = path.join(process.cwd(), 'db', 'events.json');
         const newArray = [...filteredEvents, updatedEvent];
         const sortedArray = newArray.sort((a,b) => a.id - b.id);
         const string = JSON.stringify(sortedArray, null, 2);

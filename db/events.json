@@ -33,5 +33,33 @@
     "description": "Descrizione dell'evento 5",
     "date": "2024-10-03",
     "maxSeats": 6
+  },
+  {
+    "id": 6,
+    "title": "Evento generico",
+    "description": "Un evento fenomenale",
+    "date": "2025-06-03",
+    "maxSeats": 25
+  },
+  {
+    "id": 7,
+    "title": "Evento generico - 2",
+    "description": "Un evento fenomenale",
+    "date": "2025-06-03",
+    "maxSeats": "20"
+  },
+  {
+    "id": 8,
+    "title": "Evento generico - 3",
+    "description": "Un evento fenomenale",
+    "date": "2025-06-03",
+    "maxSeats": 20
+  },
+  {
+    "id": 9,
+    "title": "Evento generico - 4",
+    "description": "Un evento fenomenale",
+    "date": "2025-06-03",
+    "maxSeats": "20"
   }
 ]
