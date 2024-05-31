@@ -2,16 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const events = require('../db/events.json');
 class Event {
-    // constructor(id, title, description, date, maxSeats){
-    //     this.id = id;
-    //     this.title = title;
-    //     this.description = description;
-    //     this.date = date;
-    //     this.maxSeats = maxSeats;
-    // }
-
     static readEvents(queryString){
-        if(Object.keys(queryString).length === 0){
+        if(Object.keys(queryString).length === 0 || !queryString){
             return events;
         }
 
@@ -33,7 +25,7 @@ class Event {
     static addEvent(newEvent){
         const filePath = path.join(process.cwd(), 'db', 'events.json');
         const updateEvents = [...events, newEvent];
-        const string = JSON.stringify(updateEvents);
+        const string = JSON.stringify(updateEvents, null, 2);
         fs.writeFileSync(filePath, string);
     }
 }

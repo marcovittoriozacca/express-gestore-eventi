@@ -6,8 +6,9 @@ const router = express.Router();
 
 router.get('/', index);
 
-router.post('/', (req, res) => res.json({message: "Store Route"}));
+router.use(express.urlencoded({ extended: true }));
 
+router.post('/', store);
 router.put('/:event', update);
 
 
