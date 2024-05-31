@@ -1,5 +1,9 @@
+const Event = require('../models/event.js');
+
 const index = (req, res) => {
-    res.json({message: "Index Route"});
+    res.json({
+        events: Event.readEvents(req.query)
+    });
 }
 
 const store = (req, res) => {
