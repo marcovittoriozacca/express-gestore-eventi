@@ -6,11 +6,11 @@ class Event {
         if(Object.keys(queryString).length === 0 || !queryString){
             return events;
         }
-
-        let filteredEvents = events;
+        console.log(Object.keys(queryString))
+        let filteredEvents = [...events];
 
         Object.keys(queryString).forEach(param => {
-            filteredEvents = filteredEvents.filter(e => e[param] === queryString[param]);
+            filteredEvents = filteredEvents.filter(e => e[param] == queryString[param]);
         });
 
         return filteredEvents;
