@@ -40,7 +40,7 @@ class Reservation {
 
         const updateReservations = [...filteredReservations];
         const string = JSON.stringify(updateReservations, null, 2);
-        fs.writeFileSync(filePath, string);
+        // fs.writeFileSync(filePath, string);
     }
 
 
