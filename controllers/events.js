@@ -17,15 +17,19 @@ const store = (req, res) => {
     }
 
     maxSeats = Number(maxSeats);
-    const lastEventID = events[events.length-1].id;
+    let lastEventID;
+    events.length !== 0? lastEventID = events[events.length-1].id+ 1 : lastEventID = 1;
+
     newEvent = {
-        id: lastEventID+1,
+        id: lastEventID,
         title,
         description,
         date,
         maxSeats
     }
+
     Event.addEvent(newEvent);
+
     res.json({
         newEvent: newEvent
     })
@@ -56,6 +60,10 @@ const update = (req, res) => {
     const filteredEvents = events.filter(e => e.id !== event);
 
     Event.updateEvent([...filteredEvents, updatedEvent]);
+
+    res.json({
+        updatedEvent: updatedEvent
+    })
 
 
 }
