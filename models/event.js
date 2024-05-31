@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const events = require('../db/events.json');
+const reservations = require('../db/reservations.json');
 class Event {
     constructor(title, description, date, maxSeats, id = null){
         if(!title || !description || !date || !maxSeats){
@@ -39,7 +40,7 @@ class Event {
         
         let {title, description, date, maxSeats} = newEvent;
         let {id} = oldEvent;
-        
+
         const updatedEvent = {
             id: id,
             title: title || oldEvent.title,
@@ -65,6 +66,11 @@ class Event {
 
     static idHandler() {
         return events.length !== 0 ? events[events.length - 1].id + 1 : 1;
+    }
+
+    static getReservations(id) {
+        const filteredReservations = reservations.filter(r => r.eventId === id);
+        return filteredReservations;
     }
 
 }

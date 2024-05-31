@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "email": "mario.rossi@example.com",
+      "eventId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Luigi",
+      "lastName": "Verdi",
+      "email": "luigi.verdi@example.com",
+      "eventId": 1
+    },
+    {
+      "id": 3,
+      "firstName": "Giulia",
+      "lastName": "Bianchi",
+      "email": "giulia.bianchi@example.com",
+      "eventId": 2
+    },
+    {
+      "id": 4,
+      "firstName": "Alessandro",
+      "lastName": "Neri",
+      "email": "alessandro.neri@example.com",
+      "eventId": 2
+    },
+    {
+      "id": 5,
+      "firstName": "Francesca",
+      "lastName": "Russo",
+      "email": "francesca.russo@example.com",
+      "eventId": 3
+    },
+    {
+      "id": 6,
+      "firstName": "Luca",
+      "lastName": "Gialli",
+      "email": "luca.gialli@example.com",
+      "eventId": 3
+    },
+    {
+      "id": 7,
+      "firstName": "Chiara",
+      "lastName": "Marino",
+      "email": "chiara.marino@example.com",
+      "eventId": 4
+    },
+    {
+      "id": 8,
+      "firstName": "Davide",
+      "lastName": "Grigio",
+      "email": "davide.grigio@example.com",
+      "eventId": 4
+    },
+    {
+      "id": 9,
+      "firstName": "Sara",
+      "lastName": "Viola",
+      "email": "sara.viola@example.com",
+      "eventId": 5
+    },
+    {
+      "id": 10,
+      "firstName": "Matteo",
+      "lastName": "Azzurri",
+      "email": "matteo.azzurri@example.com",
+      "eventId": 5
+    }
+  ]
