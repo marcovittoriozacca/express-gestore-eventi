@@ -6,7 +6,6 @@ class Event {
         if(Object.keys(queryString).length === 0 || !queryString){
             return events;
         }
-        console.log(Object.keys(queryString))
         let filteredEvents = [...events];
 
         Object.keys(queryString).forEach(param => {
