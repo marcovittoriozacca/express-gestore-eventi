@@ -23,10 +23,12 @@ const store = (req, res) => {
 }
 
 const destroy = (req, res) => {
-    let {event,reservation} = req.params
-
+    let {event,reservation} = req.params    
     Reservation.removeReservation(Number(event), Number(reservation));
-    res.send(`${req.params.event} - ${req.params.reservation}`);
+    res.json({
+        statis: 200,
+        message: "Reservation deleted"
+    })
 }
 
 module.exports = {

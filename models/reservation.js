@@ -35,7 +35,10 @@ class Reservation {
     }
 
     static removeReservation(eventId, reservationId){
-        const reservationToDelete =  reservations.find(r => r.id === reservationId && r.eventId ===eventId);
+        
+        const reservationToDelete =  reservations.find(r => r.id === reservationId && r.eventId === eventId);
+
+        console.log(reservationToDelete)
         const filteredReservations = reservations.filter(r => r.id !== reservationToDelete.id);
 
         const updateReservations = [...filteredReservations];
