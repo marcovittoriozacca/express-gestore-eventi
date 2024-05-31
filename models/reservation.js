@@ -2,6 +2,7 @@ const reservations = require('../db/reservations.json');
 const path = require('path')
 const fs = require('fs');
 const {validateEmail} = require('../utils.js');
+const filePath = path.join(process.cwd(), 'db', 'reservations.json');
 class Reservation {
     constructor(firstName, lastName, email, eventId, id = null){
         this.id = id !== null? id : this.constructor.idHandler();
@@ -26,13 +27,22 @@ class Reservation {
             throw new Error;
         }
         console.log(newReservation)
-        const filePath = path.join(process.cwd(), 'db', 'reservations.json');
         const updateReservations = [...reservations, newReservation];
         const string = JSON.stringify(updateReservations, null, 2);
         fs.writeFileSync(filePath, string);
 
         return newReservation;
     }
+
+    static removeReservation(eventId, reservationId){
+        const reservationToDelete =  reservations.find(r => r.id === reservationId && r.eventId ===eventId);
+        const filteredReservations = reservations.filter(r => r.id !== reservationToDelete.id);
+
+        const updateReservations = [...filteredReservations];
+        const string = JSON.stringify(updateReservations, null, 2);
+        fs.writeFileSync(filePath, string);
+    }
+
 
     static idHandler() {
         return reservations.length !== 0 ? reservations[reservations.length - 1].id + 1 : 1;

@@ -23,7 +23,9 @@ const store = (req, res) => {
 }
 
 const destroy = (req, res) => {
-    
+    let {event,reservation} = req.params
+
+    Reservation.removeReservation(Number(event), Number(reservation));
     res.send(`${req.params.event} - ${req.params.reservation}`);
 }
 
