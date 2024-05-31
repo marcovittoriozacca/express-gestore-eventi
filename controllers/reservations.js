@@ -4,6 +4,7 @@ const Reservation = require('../models/reservation.js');
 const index = (req, res) => {
     const {event} = req.params;
     const filteredReservations = Event.getReservations(Number(event));
+    console.log(filteredReservations)
     res.json({
         reservations: filteredReservations
     })

@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const events = require('../db/events.json');
 const reservations = require('../db/reservations.json');
+const Reservation = require('./reservation.js');
 class Event {
     constructor(title, description, date, maxSeats, id = null){
         if(!title || !description || !date || !maxSeats){
@@ -70,7 +71,8 @@ class Event {
 
     static getReservations(id) {
         const filteredReservations = reservations.filter(r => r.eventId === id);
-        return filteredReservations;
+        const instantiatedReservations = filteredReservations.map(r => new Reservation(r.firstName, r.lastName, r.email, r.eventId, r.id));
+        return instantiatedReservations;
     }
 
 
