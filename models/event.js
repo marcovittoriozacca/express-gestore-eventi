@@ -73,6 +73,40 @@ class Event {
         return filteredReservations;
     }
 
+
+    set setTitle(newTitle){
+        if(!newTitle || newTitle.trim().replace(/[^\w\s]|_/g, ' ').length === 0){
+            throw new Error();
+        }
+        this.title = newTitle;
+        
+    }
+
+    set setDescription(newDescription){
+        if(!newDescription){
+            throw new Error();
+        }
+        this.description = newDescription;
+        
+    }
+
+    set setDate(newDate){
+        const checkDate = new Date(newDate);
+        if(!newDate || isNaN(checkDate)){
+            throw new Error();
+        }
+        this.date = newDate;
+        
+    }
+
+    set setMaxSeats(newMaxSeats){
+        if(!newMaxSeats || newMaxSeats < 1 || typeof newMaxSeats !== "number"){
+            throw new Error();
+        }
+        this.maxSeats = newMaxSeats;
+        
+    }
+
 }
 
 module.exports = Event;
